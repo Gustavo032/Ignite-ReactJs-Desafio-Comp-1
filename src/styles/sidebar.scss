@@ -1,7 +1,7 @@
 nav.sidebar {
   display: flex;
   flex-direction: column;
-
+  justify-content: space-around;
   align-items: center;
 
   max-width: 24rem;
@@ -16,6 +16,10 @@ nav.sidebar {
     font-size: 3rem;
     font-weight: 600;
     color: var(--yellow);
+	position: fixed;
+	top: 0;
+	left: auto;
+	right: auto;
 
     p {
       display: inline;
