@@ -1,3 +1,6 @@
+import { memo } from "react";
+import { useMovies } from "../MoviesContext";
+
 interface selectedGenreProps {
 	selectedGenre : {
 		id: number;
@@ -6,10 +9,14 @@ interface selectedGenreProps {
 
 	}
 }
-
-export function Header({selectedGenre}:selectedGenreProps){
+function HeaderComponent(){
+	const {title} = useMovies().selectedGenre
 	// Bonus :)
 	return(
-		<span className="category">Categoria:<span> {selectedGenre.title}</span></span>
+		<span className="category">Categoria:<span> {title}</span></span>
 	);
 }
+
+export const Header = memo(HeaderComponent, (prevProps, nextProps)=>{
+	return Object.is(prevProps, nextProps)
+})

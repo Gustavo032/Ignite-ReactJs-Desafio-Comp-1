@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../services/api";
 import { Button } from "./Button";
 import '../styles/sidebar.scss';
+import { useMovies } from "../MoviesContext";
 
 
 interface GenreResponseProps {
@@ -11,8 +12,11 @@ interface GenreResponseProps {
 }
 
 
-export function SideBar({handleClickButton, selectedGenreId}:any) {
+export function SideBar() {
   // Complete aqui
+
+  const {handleClickButton, selectedGenreId} = useMovies()
+
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
 
   useEffect(() => {
