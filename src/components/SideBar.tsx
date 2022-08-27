@@ -7,7 +7,7 @@ import { useMovies } from "../MoviesContext";
 
 interface GenreResponseProps {
   id: number;
-  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+  name: 'action' | 'manga' | 'magia' | 'romance' | 'family';
   title: string;
 }
 
@@ -28,7 +28,7 @@ export function SideBar() {
   return(
 
 		<nav className="sidebar">
-			<span>Watch<p>Me</p></span>
+			<span>Read<p>Me</p></span>
 
 			<div className="buttons-container">
 				{genres.map(genre => (

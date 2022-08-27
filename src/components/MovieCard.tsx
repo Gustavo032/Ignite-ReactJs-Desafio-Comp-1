@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Star, Clock } from 'react-feather';
+import { Star, Calendar } from 'react-feather';
 
 import '../styles/movie-card.scss';
 
@@ -7,7 +7,7 @@ interface MovieCardProps {
   title: string;
   poster: string;
   rating: string;
-  runtime: string;
+  year: string;
 }
 
 function MovieCardComponent(props: MovieCardProps) {
@@ -27,7 +27,7 @@ function MovieCardComponent(props: MovieCardProps) {
             </div>
 
             <div>
-              <Clock /> {props.runtime}
+              <Calendar /> {props.year}
             </div>
           </div>
         </div>

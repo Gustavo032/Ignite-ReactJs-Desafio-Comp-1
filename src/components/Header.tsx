@@ -4,7 +4,7 @@ import { useMovies } from "../MoviesContext";
 interface selectedGenreProps {
 	selectedGenre : {
 		id: number;
-		name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+		name: 'action' | 'manga' | 'magia' | 'romance' | 'family';
 		title: string;
 
 	}

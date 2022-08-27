@@ -3,33 +3,18 @@ import '../styles/content.scss';
 import { useEffect, useState } from "react";
 import { api } from "../services/api";
 import { useMovies } from "../MoviesContext";
-// interface ContentMovieProps {
-// 	movies:{
-// 		imdbID: string;
-// 		Title: string;
-// 		Poster: string;
-// 		Ratings: Array<{
-// 			Source: string;
-// 			Value: string;
-// 		}>;
-// 		Runtime: string;
-// 		map: Function;
-// 	};
-// }
-
 interface MovieProps {
 	imdbID: string;
 	Title: string;
 	Poster: string;
 	Ratings: Array<{
-		Source: string;
 		Value: string;
 	}>;
-	Runtime: string;
+	Year: string;
 }
 interface GenreResponseProps {
 	id: number;
-	name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+	name: 'action' | 'manga' | 'magia' | 'romance' | 'family';
 	title: string;
 }
 
@@ -40,9 +25,9 @@ export function Content() {
 
   return(
 	<div className="movies-list">
-		{movies.map((movie:MovieProps) => {
+		{movies.map((movie:any) => {
 			return(
-				<MovieCard key={movie.imdbID} title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
+				<MovieCard key={movie.imdbID} title={movie.Title} poster={movie.Poster} year={movie.Year} rating={movie.Ratings[0].Value} />
 			)
 		})}
 	</div>
