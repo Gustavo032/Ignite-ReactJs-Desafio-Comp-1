@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import {api} from './services/api'
-
+import axios from "axios";
 interface GenreResponseProps {
   id: number;
   name: 'action' | 'manga' | 'magia' | 'romance' | 'family';
@@ -38,11 +37,11 @@ export function MoviesProvider({children}: MoviesProviderProps) {
 	const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 
 	useEffect(() => {
-		api.get<MovieProps[]>(`movies/?Genre_id=${selectedGenreId}`).then(response => {
+		axios.get<MovieProps[]>(`https://server-read-me.vercel.app/movies/genreId${selectedGenreId}.json/`).then(response => {
 		setMovies(response.data);
 		});
 
-		api.get<GenreResponseProps>(`genres/${selectedGenreId}`).then(response => {
+		axios.get<GenreResponseProps>(`https://server-read-me.vercel.app/genres/${selectedGenreId}/db.json/`).then(response => {
 		setSelectedGenre(response.data);
 		})
 	}, [selectedGenreId]);

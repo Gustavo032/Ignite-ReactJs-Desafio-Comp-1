@@ -3,6 +3,7 @@ import { api } from "../services/api";
 import { Button } from "./Button";
 import '../styles/sidebar.scss';
 import { useMovies } from "../MoviesContext";
+import axios from "axios";
 
 
 interface GenreResponseProps {
@@ -20,7 +21,7 @@ export function SideBar() {
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
 
   useEffect(() => {
-    api.get<GenreResponseProps[]>('genres').then(response => {
+    axios.get<GenreResponseProps[]>('https://server-read-me.vercel.app/genres/db.json').then(response => {
       setGenres(response.data);
     });
   }, []);

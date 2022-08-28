@@ -1,7 +1,6 @@
 import { MovieCard } from "./MovieCard";
 import '../styles/content.scss';
 import { useEffect, useState } from "react";
-import { api } from "../services/api";
 import { useMovies } from "../MoviesContext";
 interface MovieProps {
 	imdbID: string;
